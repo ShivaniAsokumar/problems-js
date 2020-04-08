@@ -40,5 +40,14 @@ Array.prototype.myEvery = function(callback) {
 	return true;
 };
 
-const every = num.myEvery((x) => x > 10);
-console.log(every);
+Array.prototype.myFilter = function(callback) {
+	let result = [];
+	for (let i = 0; i < this.length; i++) {
+		if (callback(this[i], i, this)) {
+			result.push(this[i]);
+		}
+	}
+	return result;
+};
+
+let sample = [ 6, 1, 2, 5, 9, 10 ];
